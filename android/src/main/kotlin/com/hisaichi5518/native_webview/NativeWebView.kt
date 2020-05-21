@@ -19,6 +19,7 @@ class NativeWebView(context: Context, channel: MethodChannel, options: WebViewOp
         settings.javaScriptEnabled = true
         settings.domStorageEnabled = true
         settings.javaScriptCanOpenWindowsAutomatically = true
+        settings.allowFileAccessFromFileURLs = true
         addJavascriptInterface(JavascriptHandler(channel), NativeWebViewClient.JAVASCRIPT_BRIDGE_NAME)
     }
 

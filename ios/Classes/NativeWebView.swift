@@ -108,6 +108,7 @@ extension NativeWebView: WKNavigationDelegate {
     }
 
     public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
         let arguments: [String: String?] = ["url": webView.url?.absoluteString]
         channel?.invokeMethod("onPageStarted", arguments: arguments)
     }
